@@ -1,0 +1,39 @@
+body {
+	font-family: 'Lato', sans-serif;
+	background: url('../images/scream.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+#logo {
+	margin-top: 275px;
+}
+
+.title {
+	color: white;
+	text-align: center;
+	font-size: 62px;
+	font-weight: 700;
+	font-family: 'Lato', sans-serif;
+	padding-bottom: 20px;
+}
+
+hr {
+	width: 50px;
+}
+
+.button {
+	color: white;
+	background-color: #e74c3c;
+	width: 150px;
+	height: 50px;
+	text-align: center;
+	border: none;
+	text-decoration: none;
+}
+
+.button a:hover {
+	background-color: #2c3e50;
+}
