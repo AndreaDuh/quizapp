@@ -19,32 +19,31 @@
 			</div>
 		</div>
 	
-<!-- QnA SECTION -->
+<!-- QUIZ SECTION -->
 		<div class="row">
-			<div class="panel panel-default">
-			  <!-- Default panel contents -->
-			  <div class="panel-body">
-			    <p>Who was the original killer for the Friday the 13th films?</p>
-			  </div>
+			<div class="panel panel-default" id="quiz">
+			  <div class="panel-body question" id="question">Who was the original killer in the Friday the 13th films?</div>
 
 			  <!-- List group -->
-			  <div class="list-group">
-			    <a href="#" class="list-group-item">1. Michael Myers</a>
-			    <a href="#" class="list-group-item">2. Jason Voorhees</a>
-			    <a href="#" class="list-group-item">3. Freddy Krueger</a>
-			    <a href="#" class="list-group-item">4. Pamela Voorhees</a>
+			  <div class="list-group answers">
+			    <div id="answer1" class="list-group-item answer"><span id ="answerNumber">1.</span> Michael Myers</div>
+			    <div id="answer2" class="list-group-item answer"><span id ="answerNumber">2.</span> Jason Voorhees</div>
+			    <div id="answer3" class="list-group-item answer"><span id ="answerNumber">3.</span> Michael Myers</div>
+			    <div id="answer4" class="list-group-item answer"><span id ="answerNumber">4.</span>Pamela Voorhees</div>
 			  </div>
 			</div>
 		</div>
 
-<!-- NEXT SECTION -->
+<!--QUESTION COUNT-->
 		<div class="row">
+			<div class="questionNumber">
+				<span id="count"></span> of 10
+			</div>
+
 			<div class="next">
-				<a href="#">NEXT <span class="glyphicon glyphicon-chevron-right"></span></a>
+				<a href="">NEXT <span class="glyphicon glyphicon-chevron-right"></span></a>
 			</div>
 		</div>
-
-	</div>
 	
 <!-- JAVASCRIPTS -->
 <script src="js/jquery-2.1.4.min.js"></script>

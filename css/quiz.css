@@ -10,7 +10,7 @@ body {
 /* PANEL STYLE*/
 .panel {
 	font-size: 36px;
-	height: 380px;
+	height: 370px;
 	margin-top: 100px;
 	background-color: #ededed!important;
 	border-radius: 0 !important;
@@ -21,21 +21,28 @@ body {
 	text-align: center;
 }
 
-.list-group a {
+.list-group-item {
 	background-color: #ededed!important;
 }
 
-.list-group a:hover {
+.answers :hover {
 	background-color: #2ecc71 !important;
 	color: white !important;
+	cursor: pointer;
 }
 
-/* NEXT STYLE*/
+/* QUESTION COUNT */
+
+.questionCount {
+	color: white;
+	float: left;
+	font-size: 20px;
+}
+
 .next a {
 	color: white;
 	text-decoration: none;
 	float: right;
-	margin-top: 25px;
 }
 
 .next a:hover {
