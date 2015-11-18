@@ -3,6 +3,7 @@ $(document).ready(function () {
 	var quiz;
 	var totalQuestions;
 	var currentQuestionNumber;
+	var answerNumber = document.getElementById('#answerNumber');
 
 /* For the user to answer the Question */
 	    $(".answer").click(function (event) {
@@ -12,7 +13,7 @@ $(document).ready(function () {
     })
 
 	function answerQuestion(answerNumber) {
-		var question = quiz.questions[currentQuestionNumber - 1];
+		var question = quiz.questions;
 		question.userAnswer = answerNumber;
 		showAnswer(question.message, question.userAnswer === question.correctAnswer);
 	};
