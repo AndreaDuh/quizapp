@@ -1,106 +1,16 @@
 $(document).ready(function () {
-/* Global Variables */
-	var quiz;
-	var totalQuestions;
-	var currentQuestionNumber;
-	var answerNumber = document.getElementById('#answerNumber');
-
-/* For the user to answer the Question */
-	    $(".answer").click(function (event) {
-        event.preventDefault();
-        var selectedNumber = +$(this).attr("id").substring(6);
-        answerQuestion(selectedNumber);
-    })
-
-	function answerQuestion(answerNumber) {
-		var question = quiz.questions;
+		function answerQuestion(answerNumber) {
+		var question = quiz.questions[currentQuestionNumber];
 		question.userAnswer = answerNumber;
 		showAnswer(question.message, question.userAnswer === question.correctAnswer);
-	};
+	}
 
-/* Move on to next Question */
-	function moveNext() {
-    if (currentQuestionNumber < totalQuestions) {
-        currentQuestionNumber++;
-        updateDisplayForQuestion(quiz.questions[currentQuestionNumber - 1]);
-    }
-    else {
-        finish();
-    }
-};
+/* Global Variables */
+	var totalQuestions = 8;
+	var currentQuestionNumber = 0;
+	var answerNumber = document.getElementById('#answerNumber');
 
-function updateDisplayForQuestion(question) {
-    $("#questionNumber").text(question.number + "/" + totalQuestions);
-    $("#question").text(question.question);
-    for (var i = 0; i <= 3; i++) {
-        $("#answer" + (i + 1)).text(question.answers[i].answer);
-    }
-};
-
-
-function finish() {
-    var score = 0;
-    for (var i = 0; i < quiz.questions.length; i++) {
-        var question = quiz.questions[i];
-        if (question.correctAnswer == question.userAnswer) {
-            score++;
-        }
-    };
-
-    var message = "Hey you did it! I hope you didn't google any answers, cause I put a curse on everyone who did. Anyways you got: " + score + " out of a possible " + quiz.questions.length + ".";
-    showFinish(message);
-}
-
-/* Bootstrap Modal for quiz */
-	function showAnswer(message, correct) {
-    var title = "Correct";
-    var type = BootstrapDialog.TYPE_SUCCESS;
-    if (!correct) {
-        title = "Incorrect";
-        type = BootstrapDialog.TYPE_DANGER;
-    }
-    BootstrapDialog.show({
-        message: message,
-        title: title,
-        type: type,
-        onhidden: function (dialogRef) {
-            moveNext();
-        },
-        buttons: [
-            {
-                id: 'btn-ok',
-                icon: 'glyphicon glyphicon-check',
-                label: 'OK',
-                cssClass: 'btn-primary',
-                autospin: false,
-                action: function (dialogRef) {
-                    dialogRef.close();
-                }
-            }
-        ]
-    });
-};
-
-function showFinish(message) {
-    BootstrapDialog.show({
-        title: "Completed",
-        message: message,
-        buttons: [
-            {
-                id: 'btn-ok',
-                icon: 'glyphicon glyphicon-check',
-                label: 'OK',
-                cssClass: 'btn-primary',
-                autospin: false,
-                action: function (dialogRef) {
-                    dialogRef.close();
-                }
-            }
-        ]
-    });
-}
-
-/* Questions and Answers section */
+	/* Questions and Answers section */
 	var quiz = {
 		questions: [
 			{
@@ -137,19 +47,19 @@ function showFinish(message) {
 				                    answers: [
 				                        {
 				                            number: 1,
-				                            answer: "Jordan Thompson"                
+				                            answer: "1. Jordan Thompson"                
 				                        },
 				                        {
 				                            number: 2,
-				                            answer: "Glen Lantz"
+				                            answer: "2. Glen Lantz"
 				                        },
 				                        {
 				                            number: 3,
-				                            answer: "Bobby Gray"
+				                            answer: "3. Bobby Gray"
 				                        },
 				                        {
 				                            number: 4,
-				                            answer: "Freddy Collins"
+				                            answer: "4. Freddy Collins"
 				                        }
 				                    ]
 				                },
@@ -158,23 +68,23 @@ function showFinish(message) {
 				                    question: "Which one of these ladies is not considered to be a final girl?",
 				                    correctAnswer: 3,
 				                    userAnswer: 0,
-				                    message: "A final girl is characterized as the innocent and sweet girl, who ends up as the sole survivor in the end. Selina Kyle is Catwoman, a comic book character.",
+				                    message: "A final girl is characterized as the innocent and sweet girl, who ends up as the sole survivor in the end. Selina Kyle is Catwoman, a comic book character. Duh!",
 				                    answers: [
 				                        {
 				                            number: 1,
-				                            answer: "Sidney Prescott"
+				                            answer: "1. Sidney Prescott"
 				                        },
 				                        {
 				                            number: 2,
-				                            answer: "Laurie Strode"
+				                            answer: "2. Laurie Strode"
 				                        },
 				                        {
 				                            number: 3,
-				                            answer: "Selina Kyle"
+				                            answer: "3. Selina Kyle"
 				                        },
 				                        {
 				                            number: 4,
-				                            answer: "Nancy Thompson"
+				                            answer: "4. Nancy Thompson"
 				                        }
 				                    ]
 				                },
@@ -187,19 +97,19 @@ function showFinish(message) {
 				                    answers: [
 				                        {
 				                            number: 1,
-				                            answer: "Don't have sex"
+				                            answer: "1. Don't have sex"
 				                        },
 				                        {
 				                            number: 2,
-				                            answer: "Never walk alone"
+				                            answer: "2. Never walk alone"
 				                        },
 				                        {
 				                            number: 3,
-				                            answer: "Grab a lethal weapon"
+				                            answer: "3. Grab a lethal weapon"
 				                        },
 				                        {
 				                            number: 4,
-				                            answer: "Hide and call the cops"
+				                            answer: "4. Hide and call the cops"
 				                        }
 				                    ]
 				                },
@@ -212,19 +122,19 @@ function showFinish(message) {
 				                    answers: [
 				                        {
 				                            number: 1,
-				                            answer: "Garlic"
+				                            answer: "1. Garlic"
 				                        },
 				                        {
 				                            number: 2,
-				                            answer: "True love"
+				                            answer: "2. True love"
 				                        },
 				                        {
 				                            number: 3,
-				                            answer: "Stab Dracula with a wooden stake"
+				                            answer: "3. Stab Dracula with a wooden stake"
 				                        },
 				                        {
 				                            number: 4,
-				                            answer: "Burning his coffin"
+				                            answer: "4. Burning his coffin"
 				                        }
 				                    ]
 				                },
@@ -237,44 +147,44 @@ function showFinish(message) {
 				                    answers: [
 				                        {
 				                            number: 1,
-				                            answer: "Balthazar"
+				                            answer: "1. Balthazar"
 				                        },
 				                        {
 				                            number: 2,
-				                            answer: "Lucifer"
+				                            answer: "2. Lucifer"
 				                        },
 				                        {
 				                            number: 3,
-				                            answer: "Azazel"
+				                            answer: "3. Azazel"
 				                        },
 				                        {
 				                            number: 4,
-				                            answer: "Pazuzu"
+				                            answer: "4. Pazuzu"
 				                        }
 				                    ]
 				                },
 				                {
 				                    number: 7,
-				                    question: "Michael Myers usually uses what weapon to kill his vicims?",
+				                    question: "Michael Myers usually uses what weapon to kill his victims?",
 				                    correctAnswer: 1,
 				                    userAnswer: 0,
-				                    message: "Bruce Willis played 'John McClane' in 'Die Hard: With a Vengeance.",
+				                    message: "A simple kitchen knife is all Michael needed to kill victims, including his sister.",
 				                    answers: [
 				                        {
 				                            number: 1,
-				                            answer: "Kitchen Knife"
+				                            answer: "1. Kitchen Knife"
 				                        },
 				                        {
 				                            number: 2,
-				                            answer: "Chainsaw"
+				                            answer: "2. Chainsaw"
 				                        },
 				                        {
 				                            number: 3,
-				                            answer: "Gloves with sharp knives attached to it"
+				                            answer: "3. Gloves with sharp knives attached to it"
 				                        },
 				                        {
 				                            number: 4,
-				                            answer: "Machete"
+				                            answer: "4. Machete"
 				                        }
 				                    ]
 				                },
@@ -287,23 +197,112 @@ function showFinish(message) {
 				                    answers: [
 				                        {
 				                            number: 1,
-				                            answer: "John Wayne Gacy"
+				                            answer: "1. John Wayne Gacy"
 				                        },
 				                        {
 				                            number: 2,
-				                            answer: "Henry Howard Holmes"
+				                            answer: "2. Henry Howard Holmes"
 				                        },
 				                        {
 				                            number: 3,
-				                            answer: "Ed Gein"
+				                            answer: "3. Ed Gein"
 				                        },
 				                        {
 				                            number: 4,
-				                            answer: "Ted Bundy"
+				                            answer: "4. Ted Bundy"
 				                        }
 				                    ]
 				                }
 		]
 	};
+
+/* For the user to answer the Question */
+	$(".answer").click(function (event) {
+        event.preventDefault();
+        var selectedNumber = +$(this).attr("id").substring(6);
+        answerQuestion(selectedNumber);
+    });
+
+/* Move on to next Question */
+	function moveNext() {
+    if (currentQuestionNumber < totalQuestions - 1) {
+        currentQuestionNumber++;
+        updateDisplayForQuestion(quiz.questions[currentQuestionNumber]);
+    }
+    else {
+        finish();
+    }
+}
+
+function updateDisplayForQuestion(question) {
+    $("#questionNumber").text(question.number + "/" + totalQuestions - 1);
+    $("#question").text(question.question);
+    for (var i = 0; i <= 3; i++) {
+        $("#answer" + (i + 1)).text(question.answers[i].answer);
+    }
+}
+
+
+function finish() {
+    var score = 0;
+    for (var i = 0; i < quiz.questions.length; i++) {
+        var question = quiz.questions[i];
+        if (question.correctAnswer == question.userAnswer) {
+            score++;
+        }
+    }
+
+    var message = "Hey you did it! I hope you didn't google any answers, cause I put a curse on everyone who did. :) Anyways, you got: " + score + " out of a possible " + quiz.questions.length + ".";
+    showFinish(message);
+}
+
+/* Bootstrap Modal for quiz */
+	function showAnswer(message, correct) {
+    var title = "Correct";
+    var type = BootstrapDialog.TYPE_SUCCESS;
+    if (!correct) {
+        title = "Incorrect";
+        type = BootstrapDialog.TYPE_DANGER;
+    }
+    BootstrapDialog.show({
+        message: message,
+        title: title,
+        type: type,
+        onhidden: function (dialogRef) {
+            moveNext();
+        },
+        buttons: [
+            {
+                id: 'btn-ok',
+                icon: 'glyphicon glyphicon-check',
+                label: 'OK',
+                cssClass: 'btn-primary',
+                autospin: false,
+                action: function (dialogRef) {
+                    dialogRef.close();
+                }
+            }
+        ]
+    });
+}
+
+function showFinish(message) {
+    BootstrapDialog.show({
+        title: "Completed",
+        message: message,
+        buttons: [
+            {
+                id: 'btn-ok',
+                icon: 'glyphicon glyphicon-check',
+                label: 'OK',
+                cssClass: 'btn-primary',
+                autospin: false,
+                action: function (dialogRef) {
+                    dialogRef.close();
+                }
+            }
+        ]
+    });
+}
 
 });
