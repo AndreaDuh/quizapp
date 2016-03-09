@@ -252,7 +252,7 @@ function finish() {
         }
     }
 
-    var message = "Hey you did it! I hope you didn't google any answers, cause I put a curse on everyone who did. :) Anyways, you got: " + score + " out of a possible " + quiz.questions.length + ".";
+    var message = "Hey you did it! I hope you didn't google any answers, cause I put a curse on everyone who did. :) Anyways, you got: " + score + " out of a possible " + quiz.questions.length + ", congrats!";
     showFinish(message);
 }
 

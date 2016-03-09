@@ -7,17 +7,13 @@ body {
     -o-background-size: cover;
 }
 
-#logo {
-	margin-top: 275px;
-}
-
 .title {
 	color: white;
 	text-align: center;
 	font-size: 62px;
 	font-weight: 700;
 	font-family: 'Lato', sans-serif;
-	padding-bottom: 20px;
+	margin-top: 275px;
 }
 
 hr {
