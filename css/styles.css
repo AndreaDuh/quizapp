@@ -13,9 +13,21 @@ body {
 	font-size: 62px;
 	font-weight: 700;
 	font-family: 'Lato', sans-serif;
-	margin-top: 275px;
+	margin-top: 350px;
 }
 
+.center {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.button {
+	margin-top: 30px;
+}
+
+}
 hr {
 	width: 50px;
 }
